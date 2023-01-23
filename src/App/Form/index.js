@@ -8,7 +8,7 @@ const Form = ({ calculateResult}, {result}) => {
     const [amount, setAmount] = useState("")
 
     const onSubmit = (event) => {
-        event.preventdefault();
+        event.preventDefault();
         calculateResult(currency, amount);
     }
 
