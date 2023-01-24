@@ -3,7 +3,7 @@ import currencies from "../currencies.js";
 import Result from "./Result"
 import "./style.css";
 
-const Form = ({ calculateResult}, {result}) => {
+const Form = ({ calculateResult, result}) => {
     const [currency, setCurrency] = useState(currencies[0].short)
     const [amount, setAmount] = useState("")
 
