@@ -3,7 +3,7 @@ import currencies from "../currencies.js";
 import Result from "./Result"
 import "./style.css";
 
-const Form = ({ calculateResult, result}) => {
+const Form = ({ calculateResult, result }) => {
     const [currency, setCurrency] = useState(currencies[0].short)
     const [amount, setAmount] = useState("")
 
@@ -41,19 +41,18 @@ const Form = ({ calculateResult, result}) => {
                                 <option
                                     key={currency.short}
                                     value={currency.short}
-                                    >
+                                >
                                     {currency.name}
                                 </option>
                             )))}
                         </select>
                     </label>
                 </p>
-                <button className="form__buttons"> przelicz kurs </button>  
-
-            <p className=".form__resultText">  Twoja kwota wynosi </p>
+                <button className="form__buttons"> przelicz kurs </button>
+                <p className=".form__resultText">  Twoja kwota wynosi </p>
 
                 <p>
-                    <Result result = {result}/>
+                    <Result result={result} />
                 </p>
 
             </fieldset>
