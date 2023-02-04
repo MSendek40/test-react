@@ -4,7 +4,6 @@ import Form from "./Form";
 import './App.css';
 import Clock from "./Clock/index.js";
 
-
 function App() {
 
     const [result, setResult] = useState();

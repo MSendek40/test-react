@@ -48,11 +48,19 @@ const Form = ({ calculateResult, result }) => {
                         </select>
                     </label>
                 </p>
-                <button className="form__buttons"> przelicz kurs </button>
+                <div className="buttons_position">
+                    <span> <button className="form__buttons"
+                    > przelicz kurs </button> </span>
+                </div>
+
+
                 <p className=".form__resultText">  Twoja kwota wynosi </p>
 
                 <p>
-                    <Result result={result} />
+                    <Result
+                        result={result}
+
+                    />
                 </p>
 
             </fieldset>
