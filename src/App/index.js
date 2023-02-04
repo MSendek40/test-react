@@ -19,7 +19,7 @@ function App() {
     }
 
     return (
-        <div className="app">
+        < div className="app">
             <Clock/>
             <Form
                 result={result}
