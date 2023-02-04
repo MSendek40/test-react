@@ -1,7 +1,9 @@
 import { useState } from "react";
 import currencies from "../currencies.js";
 import Result from "./Result"
-import "./style.css";
+import { FormFieldSet, LabelText, FormFieldAmount, 
+         FormFieldCurrency, ResultText, ButtonsPosition, 
+         ResultButton, FormStyle} from "./styled.js";
 
 const Form = ({ calculateResult, result }) => {
     const [currency, setCurrency] = useState(currencies[0].short)
@@ -13,13 +15,13 @@ const Form = ({ calculateResult, result }) => {
     }
 
     return (
-        <form className="form" onSubmit={onSubmit}>
-            <h1 className="form__header">Kantor wymiany walut</h1>
-            <fieldset className="form__fieldset">
+        <FormStyle className="form" onSubmit={onSubmit}>
+            <h1>Kantor wymiany walut</h1>
+            <FormFieldSet>
                 <p>
                     <label>
-                        <span className="form__labelText"> Kwota PLN do wymiany </span>
-                        <input
+                        <LabelText> Kwota PLN do wymiany </LabelText>
+                        <FormFieldAmount
                             value={amount}
                             onChange={({ target }) => setAmount(target.value)}
                             placeholder="wpisz kwotę w PLN"
@@ -32,8 +34,8 @@ const Form = ({ calculateResult, result }) => {
                 </p>
                 <p>
                     <label>
-                        <span className="form__labelText">Wybierz walutę </span>
-                        <select className="form__field"
+                        <LabelText>Wybierz walutę </LabelText>
+                        <FormFieldCurrency
                             value={currency}
                             onChange={({ target }) => setCurrency(target.value)}
                         >
@@ -45,28 +47,21 @@ const Form = ({ calculateResult, result }) => {
                                     {currency.name}
                                 </option>
                             )))}
-                        </select>
+                        </FormFieldCurrency>
                     </label>
                 </p>
-                <div className="buttons_position">
-                    <span> <button className="form__buttons"
-                    > przelicz kurs </button> </span>
-                </div>
-
-
-                <p className=".form__resultText">  Twoja kwota wynosi </p>
-
+                <ButtonsPosition>
+                    <span> <ResultButton
+                    > przelicz kurs </ResultButton> </span>
+                </ButtonsPosition>
+                <ResultText>  Twoja kwota wynosi </ResultText>
                 <p>
                     <Result
                         result={result}
-
                     />
                 </p>
-
-            </fieldset>
-
-        </form>
-
+            </FormFieldSet>
+        </FormStyle>
     );
 }
 
