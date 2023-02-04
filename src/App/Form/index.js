@@ -1,9 +1,9 @@
 import { useState } from "react";
 import currencies from "../currencies.js";
 import Result from "./Result"
-import { FormFieldSet, LabelText, FormFieldAmount, 
-         FormFieldCurrency, ResultText, ButtonsPosition, 
-         ResultButton, FormStyle} from "./styled.js";
+import { FormFieldSet, LabelText, FormFieldAmount,
+         FormFieldCurrency, ResultText, ButtonsPosition, ResultButton, 
+         FormStyle } from "./styled.js";
 
 const Form = ({ calculateResult, result }) => {
     const [currency, setCurrency] = useState(currencies[0].short)
@@ -15,7 +15,8 @@ const Form = ({ calculateResult, result }) => {
     }
 
     return (
-        <FormStyle className="form" onSubmit={onSubmit}>
+        <FormStyle
+            onSubmit={onSubmit}>
             <h1>Kantor wymiany walut</h1>
             <FormFieldSet>
                 <p>
@@ -25,7 +26,6 @@ const Form = ({ calculateResult, result }) => {
                             value={amount}
                             onChange={({ target }) => setAmount(target.value)}
                             placeholder="wpisz kwotę w PLN"
-                            className="form__field"
                             type="number"
                             min="0.1"
                             step="0.1"

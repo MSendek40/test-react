@@ -1,8 +1,8 @@
 import currencies from "./currencies.js";
 import { useState } from "react";
 import Form from "./Form";
-import './App.css';
 import Clock from "./Clock/index.js";
+import { AppStyle } from "./styled.js";
 
 function App() {
 
@@ -19,13 +19,13 @@ function App() {
     }
 
     return (
-        < div className="app">
+        < AppStyle>
             <Clock/>
             <Form
                 result={result}
                 calculateResult={calculateResult}
             />
-        </div>
+        </AppStyle>
     );
 }
 
