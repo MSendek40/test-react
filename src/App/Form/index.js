@@ -1,8 +1,8 @@
 import { useState } from "react";
 import currencies from "../currencies.js";
 import Result from "./Result"
-import { FormFieldSet, LabelText, FormFieldAmount,
-         FormFieldCurrency, ResultText, ButtonsPosition, ResultButton, 
+import { FormFieldSet, LabelText,
+         FormField, ResultText, ButtonsPosition, ResultButton, 
          FormStyle } from "./styled.js";
 
 const Form = ({ calculateResult, result }) => {
@@ -22,7 +22,7 @@ const Form = ({ calculateResult, result }) => {
                 <p>
                     <label>
                         <LabelText> Kwota PLN do wymiany </LabelText>
-                        <FormFieldAmount
+                        <FormField
                             value={amount}
                             onChange={({ target }) => setAmount(target.value)}
                             placeholder="wpisz kwotę w PLN"
@@ -35,7 +35,7 @@ const Form = ({ calculateResult, result }) => {
                 <p>
                     <label>
                         <LabelText>Wybierz walutę </LabelText>
-                        <FormFieldCurrency
+                        <FormField as = "select"
                             value={currency}
                             onChange={({ target }) => setCurrency(target.value)}
                         >
@@ -47,7 +47,7 @@ const Form = ({ calculateResult, result }) => {
                                     {currency.name}
                                 </option>
                             )))}
-                        </FormFieldCurrency>
+                        </FormField>
                     </label>
                 </p>
                 <ButtonsPosition>

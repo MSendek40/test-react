@@ -15,16 +15,8 @@ margin-right: 10px;
 font-weight: 700;
 `;
 
-export const FormFieldAmount = styled.input`            
+export const FormField = styled.input`            
     padding: 10px;
-    border: 1px solid white;
-    border-radius: 10px;
-    max-width: 300px;
-    width: 100%;
-`;
-
-export const FormFieldCurrency = styled.select`
-   padding: 10px;
     border: 1px solid white;
     border-radius: 10px;
     max-width: 300px;
