@@ -1,3 +1,11 @@
+## In my project I used: 
+- HTML
+- BEM Convention
+- JavaScript
+- styled componentsutability
+- styled components
+- Media queries
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
