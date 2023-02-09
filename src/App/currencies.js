@@ -21,4 +21,4 @@ const currencies = [
     },
 ];
 
-export default currencies
+
