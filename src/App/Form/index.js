@@ -1,27 +1,13 @@
 import { useState } from "react";
-import { useDataRates } from "./useDataRates.js";
+import currencies from "../currencies.js";
 import Result from "./Result"
 import { FormFieldSet, LabelText,
          FormField, ResultText, ButtonsPosition, ResultButton, 
          FormStyle } from "./styled.js";
 
-const Form = () => { 
-    const [result, setResult] = useState();
-
-    const dataRates = useDataRates();
-
-    const calculateResult = (currency, amount) => {
-        const rate = dataRates.rates[currency];
-
-        setResult({
-            sourceAmount: +amount,
-            targetAmount: amount * rate,
-            currency,
-        });
-    }
-
-    const [currency, setCurrency] = useState("EUR");
-    const [amount, setAmount] = useState("");
+const Form = ({ calculateResult, result }) => {
+    const [currency, setCurrency] = useState(currencies[0].short)
+    const [amount, setAmount] = useState("")
 
     const onSubmit = (event) => {
         event.preventDefault();
@@ -32,7 +18,6 @@ const Form = () => {
         <FormStyle
             onSubmit={onSubmit}>
             <h1>Kantor wymiany walut</h1>
-
             <FormFieldSet>
                 <p>
                     <label>
@@ -54,12 +39,12 @@ const Form = () => {
                             value={currency}
                             onChange={({ target }) => setCurrency(target.value)}
                         >
-                            {Object.keys(dataRates.rates).map(((currency) => (
+                            {currencies.map((currency => (
                                 <option
-                                    key={currency}
-                                    value={currency}
+                                    key={currency.short}
+                                    value={currency.short}
                                 >
-                                    {currency}
+                                    {currency.name}
                                 </option>
                             )))}
                         </FormField>
