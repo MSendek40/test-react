@@ -8,6 +8,8 @@ function App() {
         < AppStyle>
             <Clock/>
             <Form
+                result={result}
+                calculateResult={calculateResult}
             />
         </AppStyle>
     );

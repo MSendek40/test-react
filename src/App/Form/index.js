@@ -1,9 +1,12 @@
 import { useState } from "react";
 import Result from "./Result"
-import { FormFieldSet, LabelText,
-         FormField, ResultText, ButtonsPosition, ResultButton, 
+import { FormFieldSet, 
+         LabelText,
+         FormField, 
+         ResultText, 
+         ButtonsPosition, 
+         ResultButton, 
          FormStyle } from "./styled.js";
-
 import { useRatesData } from "./useRatesData";
 
 const Form = () => {
