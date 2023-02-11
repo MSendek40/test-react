@@ -1,14 +1,16 @@
 import { useState } from "react";
 import Result from "./Result"
-import { FormFieldSet, 
-         LabelText,
-         FormField, 
-         ResultText, 
-         ButtonsPosition, 
-         ResultButton, 
-         FormStyle,
-        Loading,
-    Failure } from "./styled.js";
+import {
+    FormFieldSet,
+    LabelText,
+    FormField,
+    ResultText,
+    ButtonsPosition,
+    ResultButton,
+    FormStyle,
+    Loading,
+    Failure
+} from "./styled.js";
 import { useRatesData } from "./useRatesData";
 
 const Form = () => {
@@ -39,70 +41,70 @@ const Form = () => {
                 Przelicznik walut
             </h1>
             <FormFieldSet>
-            {ratesData.state === "loading"
-                ? (
-                    <Loading>
-                        Sekunda... 🙂 <br />Ładuję kursy z Europejskiego Banku Centralnego.
-                    </Loading>
-                )
-                : (
-                    ratesData.state === "error" ? (
-                        <Failure>
-                            Hmm... Coś poszło nie tak 1F914	🤔 Sprawdź, czy masz połączenie z internetem.
-                        </Failure>
-                    ) : (
-                        <>
-                            <p>
-                                <label>
-                                    <LabelText>
-                                        Kwota w zł*:
-                                    </LabelText>
-                                    <FormField
-                                        value={amount}
-                                        onChange={({ target }) => setAmount(target.value)}
-                                        placeholder="Wpisz kwotę w złotych"
-                                        type="number"
-                                        required
-                                        step="0.01"
-                                    />
-                                </label>
-                            </p>
-                            <p>
-                                <label>
-                                    <LabelText>
-                                        Waluta:
-                                    </LabelText>
-                                    <FormField
-                                        as="select"
-                                        value={currency}
-                                        onChange={({ target }) => setCurrency(target.value)}
-                                    >
-                                        {Object.keys(ratesData.rates).map(((currency) => (
-                                            <option
-                                                key={currency}
-                                                value={currency}
-                                            >
-                                                {currency}
-                                            </option>
-                                        )))}
-                                    </FormField>
-                                </label>
-                            </p>
-                            
-                                <ButtonsPosition>  
+                {ratesData.state === "loading"
+                    ? (
+                        <Loading>
+                            Sekunda... 🙂 <br />Ładuję kursy z Europejskiego Banku Centralnego.
+                        </Loading>
+                    )
+                    : (
+                        ratesData.state === "error" ? (
+                            <Failure>
+                                Hmm... Coś poszło nie tak 1F914	🤔 Sprawdź, czy masz połączenie z internetem.
+                            </Failure>
+                        ) : (
+                            <>
+                                <p>
+                                    <label>
+                                        <LabelText>
+                                            Kwota w zł*:
+                                        </LabelText>
+                                        <FormField
+                                            value={amount}
+                                            onChange={({ target }) => setAmount(target.value)}
+                                            placeholder="Wpisz kwotę w złotych"
+                                            type="number"
+                                            required
+                                            step="0.01"
+                                        />
+                                    </label>
+                                </p>
+                                <p>
+                                    <label>
+                                        <LabelText>
+                                            Waluta:
+                                        </LabelText>
+                                        <FormField
+                                            as="select"
+                                            value={currency}
+                                            onChange={({ target }) => setCurrency(target.value)}
+                                        >
+                                            {Object.keys(ratesData.rates).map(((currency) => (
+                                                <option
+                                                    key={currency}
+                                                    value={currency}
+                                                >
+                                                    {currency}
+                                                </option>
+                                            )))}
+                                        </FormField>
+                                    </label>
+                                </p>
+
+                                <ButtonsPosition>
                                     <span>
-                                    <ResultButton>Przelicz kurs</ResultButton>
+                                        <ResultButton>Przelicz kurs</ResultButton>
                                     </span>
                                 </ButtonsPosition>
                                 <ResultText> Twoja kowta wynosi </ResultText>
-                            <p> 
-                        
-                            <Result result={result} />
-                            </p>  
-                        </>
-                    )
-                )}
-                </FormFieldSet>
+                                <p>
+
+                                    <Result result={result} />
+                                </p>
+                            </>
+                        )
+                    )}
+            </FormFieldSet>
         </FormStyle>
     );
 };

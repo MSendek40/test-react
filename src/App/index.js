@@ -6,7 +6,7 @@ function App() {
 
     return (
         < AppStyle>
-            <Clock/>
+            <Clock />
             <Form
             />
         </AppStyle>
