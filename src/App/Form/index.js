@@ -1,28 +1,13 @@
 import { useState } from "react";
+import currencies from "../currencies.js";
 import Result from "./Result"
 import { FormFieldSet, LabelText,
          FormField, ResultText, ButtonsPosition, ResultButton, 
          FormStyle } from "./styled.js";
-import {useLoadRates} from "./useLoadRates.js";
 
-const Form = () => {
-    const [currency, setCurrency] = useState("EUR");
+const Form = ({ calculateResult, result }) => {
+    const [currency, setCurrency] = useState(currencies[0].short)
     const [amount, setAmount] = useState("")
-
-    const [result, setResult] = useState();
-
-    const ratesData = useLoadRates();
-
-    const calculateResult = (currency, amount) => {
-        const rate = ratesData.rates[currency]
-
-
-        setResult({
-            sourceAmount: +amount,
-            targetAmount: amount * rate,
-            currency,
-        });
-    }
 
     const onSubmit = (event) => {
         event.preventDefault();
@@ -36,7 +21,7 @@ const Form = () => {
             <FormFieldSet>
                 <p>
                     <label>
-                        s<LabelText> Kwota PLN do wymiany </LabelText>
+                        <LabelText> Kwota PLN do wymiany </LabelText>
                         <FormField
                             value={amount}
                             onChange={({ target }) => setAmount(target.value)}
@@ -54,12 +39,12 @@ const Form = () => {
                             value={currency}
                             onChange={({ target }) => setCurrency(target.value)}
                         >
-                            {Object.keys(ratesData.rates).map(((currency) => (
+                            {currencies.map((currency => (
                                 <option
-                                    key={currency}
-                                    value={currency}
+                                    key={currency.short}
+                                    value={currency.short}
                                 >
-                                    {currency}
+                                    {currency.name}
                                 </option>
                             )))}
                         </FormField>
