@@ -1,8 +1,16 @@
-const request = newXMLHttpRequest();
-request.open(`GET`, "http://api.nbp.pl/api/exchangerates/tables/{table}/");
-request.responseType = `json`;
-request.onload(() => {
-    console.log(request.response)
-});
+import axios from "axios";
 
-request.send();
+
+export const useRatesData = async () => {
+
+    (async () => {
+        try {
+        const response = await axios.get("https://api.exchangerate.host/latest");
+        console.log(response.data);
+        } catch (error) {
+        console.error("Something bad happened!", error);
+        }
+       })();
+} 
+
+
