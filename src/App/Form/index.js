@@ -1,13 +1,28 @@
 import { useState } from "react";
-import currencies from "../currencies.js";
 import Result from "./Result"
 import { FormFieldSet, LabelText,
          FormField, ResultText, ButtonsPosition, ResultButton, 
          FormStyle } from "./styled.js";
 
-const Form = ({ calculateResult, result }) => {
-    const [currency, setCurrency] = useState(currencies[0].short)
+import { useRatesData } from "./useRatesData";
+
+const Form = () => {
+    const [currency, setCurrency] = useState("EUR")
     const [amount, setAmount] = useState("")
+    const [result, setResult] = useState();
+
+const ratesData = useRatesData();
+
+
+    const calculateResult = (currency, amount) => {
+        const rate = ratesData.rates[currency]
+
+        setResult({
+            sourceAmount: +amount,
+            targetAmount: amount / rate,
+            currency,
+        });
+    };
 
     const onSubmit = (event) => {
         event.preventDefault();
@@ -39,12 +54,12 @@ const Form = ({ calculateResult, result }) => {
                             value={currency}
                             onChange={({ target }) => setCurrency(target.value)}
                         >
-                            {currencies.map((currency => (
+                            {Object.keys(ratesData.rates).map((currency => (
                                 <option
-                                    key={currency.short}
-                                    value={currency.short}
+                                    key={currency}
+                                    value={currency}
                                 >
-                                    {currency.name}
+                                    {currency}
                                 </option>
                             )))}
                         </FormField>
