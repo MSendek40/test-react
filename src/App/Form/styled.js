@@ -65,4 +65,14 @@ export const FormStyle = styled.form`
     background-color: teal;
     color: white;
     box-shadow: 16px 3px 12px -6px teal;
-`
+`;
+
+export const Loading = styled.p`
+color: black;
+background-color: white;
+`;
+
+export const Failure = styled.p`
+color: white;
+background-color: red;
+`;
