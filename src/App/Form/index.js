@@ -3,7 +3,7 @@ import Result from "./Result"
 import { FormFieldSet, LabelText,
          FormField, ResultText, ButtonsPosition, ResultButton, 
          FormStyle } from "./styled.js";
-import {useRatesData} from "./useRatesData.js";
+import {useLoadRates} from "./useLoadRates.js";
 
 const Form = () => {
     const [currency, setCurrency] = useState("EUR");
@@ -11,14 +11,15 @@ const Form = () => {
 
     const [result, setResult] = useState();
 
-    const ratesData = useRatesData();
+    const ratesData = useLoadRates();
 
     const calculateResult = (currency, amount) => {
         const rate = ratesData.rates[currency]
 
+
         setResult({
             sourceAmount: +amount,
-            targetAmount: amount / rate,
+            targetAmount: amount * rate,
             currency,
         });
     }
