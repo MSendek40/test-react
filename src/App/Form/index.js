@@ -1,5 +1,6 @@
 import { useState } from "react";
-import Result from "./Result"
+import Result from "./Result";
+import useRatesData  from "./useRatesData";
 import {
     FormFieldSet,
     LabelText,
@@ -11,7 +12,7 @@ import {
     Loading,
     Failure
 } from "./styled.js";
-import { useRatesData } from "./useRatesData";
+
 
 const Form = () => {
     const [result, setResult] = useState();
@@ -44,13 +45,13 @@ const Form = () => {
                 {ratesData.state === "loading"
                     ? (
                         <Loading>
-                            Sekunda... 🙂 <br />Ładuję kursy z Europejskiego Banku Centralnego.
+                            Sekunda...  <br />Ładuję kursy z Europejskiego Banku Centralnego.
                         </Loading>
                     )
                     : (
                         ratesData.state === "error" ? (
                             <Failure>
-                                Hmm... Coś poszło nie tak 1F914	🤔 Sprawdź, czy masz połączenie z internetem.
+                                Dane nie pobrały się. Sprawdź, czy masz połączenie z internetem.
                             </Failure>
                         ) : (
                             <>
