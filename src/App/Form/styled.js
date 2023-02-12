@@ -76,3 +76,6 @@ export const Failure = styled.p`
 color: white;
 background-color: red;
 `;
+
+export const StyledFooter = styled.div`
+color: white;`

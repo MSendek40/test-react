@@ -10,7 +10,8 @@ import {
     ResultButton,
     FormStyle,
     Loading,
-    Failure
+    Failure,
+    StyledFooter
 } from "./styled.js";
 
 
@@ -106,6 +107,14 @@ const Form = () => {
                         )
                     )}
             </FormFieldSet>
+            <div> 
+
+            <StyledFooter>
+    Kursy aktualne na dzień {ratesData.date}
+  </StyledFooter>
+
+
+            </div>
         </FormStyle>
     );
 };
