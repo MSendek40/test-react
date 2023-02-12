@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Result from "./Result";
-import useRatesData  from "./useRatesData";
+import useRatesData from "./useRatesData";
 import {
     FormFieldSet,
     LabelText,
@@ -107,11 +107,11 @@ const Form = () => {
                         )
                     )}
             </FormFieldSet>
-            <div> 
+            <div>
 
-            <StyledFooter>
-    Kursy aktualne na dzień {ratesData.date}
-  </StyledFooter>
+                <StyledFooter>
+                    Kursy aktualne na dzień {ratesData.date}
+                </StyledFooter>
 
 
             </div>
