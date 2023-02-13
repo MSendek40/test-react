@@ -7,7 +7,7 @@ function App() {
     return (
         < AppStyle>
             <Clock />
-            <Form/>
+            <Form />
         </AppStyle>
     );
 }

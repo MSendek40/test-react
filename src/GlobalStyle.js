@@ -2,22 +2,22 @@ import { createGlobalStyle } from "styled-components";
 import background from "./photo/background.jpg"
 export const GlobalStyle = createGlobalStyle`
 html {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 *, ::after, ::before {
-  box-sizing: inherit;
+    box-sizing: inherit;
 }
 
 #root {
-  font-family: 'Lato', sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  background-image: url("${background}");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+    font-family: 'Lato', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-image: url("${background}");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 `;
