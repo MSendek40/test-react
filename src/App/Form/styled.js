@@ -1,18 +1,17 @@
 import styled from "styled-components";
 
-
-
 export const FormFieldSet = styled.fieldset`
- padding: 20px;
+    padding: 20px;
     background-color: rgb(4, 97, 97);
     border-radius: 10px;
 `;
+
 export const LabelText = styled.span`
-display: inline-block;
-max-width: 200px;
-width: 100%;
-margin-right: 10px;
-font-weight: 700;
+    display: inline-block;
+    max-width: 200px;
+    width: 100%;
+    margin-right: 10px;
+    font-weight: 700;
 `;
 
 export const FormField = styled.input`            
@@ -24,7 +23,7 @@ export const FormField = styled.input`
 `;
 
 export const ResultText = styled.p`
-  display: inline-block;
+    display: inline-block;
     max-width: 500px;
     width: 100%;
     margin-right: 10px;
@@ -33,14 +32,14 @@ export const ResultText = styled.p`
 `;
 
 export const ButtonsPosition = styled.div`
-   display: flex;
+    display: flex;
     justify-content: space-between;
     margin: 10px;
     padding: 10px;
 `;
 
 export const ResultButton = styled.button`
- width: 150px;
+    width: 150px;
     height: 50px;
     background-color: azure;
     color:black;
@@ -58,7 +57,7 @@ export const ResultButton = styled.button`
 `;
 
 export const FormStyle = styled.form`
- border: 1px solid black;
+    border: 1px solid black;
     border-radius: 10px;
     margin-top: 40px;
     padding: 20px;
@@ -68,14 +67,14 @@ export const FormStyle = styled.form`
 `;
 
 export const Loading = styled.p`
-color: black;
-background-color: white;
+    color: black;
+    background-color: white;
 `;
 
 export const Failure = styled.p`
-color: white;
-background-color: red;
+    color: white;
+    background-color: red;
 `;
 
 export const StyledFooter = styled.div`
-color: white;`
+    color: white;`
